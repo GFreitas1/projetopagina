@@ -1,0 +1,139 @@
+.equipamentos-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    color: #333;
+    text-align: center;
+  }
+  
+  .form-add-equipamento, .edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-add-equipamento input, .edit-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1; /* Permite que os inputs ocupem o espaço disponível */
+    min-width: 150px; /* Garante um tamanho mínimo */
+  }
+  
+  .form-add-equipamento button, .edit-form button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .form-add-equipamento button:hover, .edit-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .equipamentos-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .equipamentos-list li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .equipamentos-list li span {
+    flex: 1;
+    min-width: 100px;
+    color: #555;
+  }
+  
+  .equipamentos-list li button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-left: 5px;
+  }
+  
+  .equipamentos-list li button:first-of-type {
+    background-color: #28a745; /* Cor para Editar/Salvar */
+    color: white;
+  }
+  
+  .equipamentos-list li button:first-of-type:hover {
+    background-color: #218838;
+  }
+  
+  .equipamentos-list li .delete-button {
+    background-color: #dc3545; /* Cor para Deletar */
+    color: white;
+  }
+  
+  .equipamentos-list li .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  .edit-form button {
+    background-color: #17a2b8; /* Cor para Salvar na edição */
+  }
+  
+  .edit-form button:hover {
+    background-color: #138496;
+  }
+  
+  .edit-form button:last-of-type { /* Cancelar na edição */
+    background-color: #6c757d;
+  }
+  
+  .edit-form button:last-of-type:hover {
+    background-color: #5a6268;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f4f7f6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-voltar {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .btn-voltar:hover {
+    background-color: #2980b9;
+  }
+  

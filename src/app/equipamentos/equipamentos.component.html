@@ -1,0 +1,58 @@
+<header class="page-header">
+  <button class="btn-voltar" (click)="router.navigate(['/home'])">← Voltar para Home</button>
+</header>
+
+
+<div class="equipamentos-container">
+  <h2>Gestão de Equipamentos</h2>
+
+  <div class="form-add-equipamento">
+    <h3>Adicionar Novo Equipamento</h3>
+    <form [formGroup]="formNovoEquipamento" (ngSubmit)="adicionarEquipamento()">
+      <input type="text" formControlName="nome" placeholder="Nome" required>
+      <input type="text" formControlName="tipo" placeholder="Tipo" required>
+      <input type="number" formControlName="quantidade" placeholder="Quantidade" required min="0">
+      <button type="submit" [disabled]="!formNovoEquipamento.valid">Adicionar</button>
+    </form>
+    <div *ngIf="formNovoEquipamento.get('nome')?.invalid && formNovoEquipamento.get('nome')?.touched" class="error-message">
+      Nome é obrigatório.
+    </div>
+    <div *ngIf="formNovoEquipamento.get('quantidade')?.invalid && formNovoEquipamento.get('quantidade')?.touched" class="error-message">
+      Quantidade é obrigatória e deve ser maior que zero.
+    </div>
+  </div>
+
+  <h3>Lista de Equipamentos</h3>
+  <ul class="equipamentos-list">
+    <li *ngFor="let equipamento of equipamentos">
+      <div *ngIf="equipamentoEmEdicaoId !== equipamento.id; else editMode">
+        <span>ID: {{ equipamento.id }}|</span>
+        <span>Nome: {{ equipamento.nome }}|</span>
+        <span>Tipo: {{ equipamento.tipo }}|</span>
+        <span>Qtd: {{ equipamento.quantidade }}</span>
+        <button (click)="iniciarEdicao(equipamento)">Editar</button>
+        <button class="delete-button" (click)="deletarEquipamento(equipamento.id)">Deletar</button>
+      </div>
+      <ng-template #editMode>
+        <div class="edit-form">
+          <form [formGroup]="formEdicaoEquipamento!" (ngSubmit)="salvarEdicao()">
+            <input type="text" formControlName="nome" placeholder="Nome">
+            <input type="text" formControlName="tipo" placeholder="Tipo">
+            <input type="number" formControlName="quantidade" placeholder="Quantidade">
+            <button type="submit" [disabled]="!formEdicaoEquipamento!.valid">Salvar</button>
+            <button type="button" (click)="cancelarEdicao()">Cancelar</button>
+          </form>
+          <div *ngIf="formEdicaoEquipamento && formEdicaoEquipamento.get('nome')?.invalid && formEdicaoEquipamento.get('nome')?.touched" class="error-message">
+            Nome é obrigatório.
+          </div>
+          <div *ngIf="formEdicaoEquipamento && formEdicaoEquipamento.get('quantidade')?.invalid && formEdicaoEquipamento.get('quantidade')?.touched" class="error-message">
+            Quantidade é obrigatória e deve ser maior que zero.
+          </div>
+        </div>
+      </ng-template>
+    </li>
+    <li *ngIf="equipamentos.length === 0">
+        Nenhum equipamento cadastrado.
+    </li>
+  </ul>
+</div>
